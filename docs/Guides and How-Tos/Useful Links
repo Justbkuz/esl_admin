@@ -1,0 +1,59 @@
+Controller Api Reference Guide
+https://docs.ansible.com/automation-controller/latest/html/controllerapi/api_ref.html
+
+Loops and Dictionaries
+https://www.redhat.com/sysadmin/ansible-lists-dictionaries-yaml
+
+Localhost variable/connection issue
+https://cloudautomation.pharriso.co.uk/post/implicit_localhost/
+
+Community Collections w/o information issue
+https://issues.redhat.com/browse/AAH-510
+
+Console Token
+Create Token in Console.Redhat 
+https://console.redhat.com/ansible/automation-hub/token 
+
+General Docs AAP 2.2 Page 
+https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.2
+
+Custom Credentials
+https://docs.ansible.com/ansible-tower/latest/html/userguide/credential_types.html
+https://docs.ansible.com/automation-controller/4.2.1/html/userguide/credential_types.html
+
+Vcenter Dynamic Inventory
+https://docs.ansible.com/ansible/latest/collections/community/vmware/vmware_vm_inventory_inventory.html
+
+Custom EEs
+https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html-single/managing_containers_in_private_automation_hub/index#push-containers
+
+Red Hat Automation Platform Base Execution Environment
+https://catalog.redhat.com/software/containers/ansible-automation-platform-22/ee-supported-rhel8/6273a6fa7d19ffee88be59fa?tag=1.0.0-162&push_date=1666889340000&gti-tabs=get-the-source&container-tabs=overview
+
+Winrm setup information
+https://4sysops.com/archives/managing-windows-servers-with-ansible-tower/
+https://www.ansiblepilot.com/articles/configure-a-windows-host-for-ansible-ansible-winrm/
+
+WorkFlow documentation
+https://docs.ansible.com/automation-controller/latest/html/userguide/workflows.html
+
+Ansible Special Vars
+https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html
+
+Ansible Collection credential_types
+https://docs.ansible.com/automation-controller/latest/html/userguide/credentials.html
+
+Ansible Inventory Docs
+https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+
+General API information
+https://blog.hubspot.com/website/application-programming-interface-api
+
+Ansible Controller Schedules
+https://docs.ansible.com/automation-controller/latest/html/userguide/scheduling.html
+
+Constructing groups with Dynamic inventories
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/constructed_inventory.html
+
+Using Filters and Filter List
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html
