@@ -1,0 +1,9 @@
+---
+- name: Build/Push/Install Custom EEs
+  hosts: ansjmpbcf01
+  gather_facts: false
+
+  tasks:
+    - name: Include role-exec_env_builder
+      ansible.builtin.include_role:
+        name: role-exec_env_builder
