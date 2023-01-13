@@ -24,5 +24,5 @@ pah_cred: Automation Hub Container Registry
 pah_user: "{{ gen1_user }}"
 pah_pass: "{{ gen1_pword }}"
 
-git_user: 
-git_password: 
+git_username:  '{{ lookup("env", "GIT_USERNAME" }}'
+git_token: '{{ lookup("env", "GIT_TOKEN" }}'
