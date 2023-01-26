@@ -13,7 +13,7 @@ path_ee: /root/Ansible_Execution_Environments
 # base folder for cloning EE
 base_ee_path: /root
 # private automation hub host
-pah_host: anshubprd01.esl.com
+pah_host: anshubprd01.esl.loc
 # ee repo
 ee_repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@dev.azure.com/ESLFederalCreditUnion/Ansible_Admin/_git/Ansible_Execution_Environment"
 # credential name used in AAP
