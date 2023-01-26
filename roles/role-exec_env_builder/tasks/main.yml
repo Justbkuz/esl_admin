@@ -69,7 +69,7 @@
 
 
 - name: Run the build on the selected new EE
-  ansible.builtin.shell: "ansible-builder build --tag {{ new_ee }}"
+  ansible.builtin.shell: "/root/ee_venv/bin/ansible-builder build --tag {{ new_ee }}"
   args:
     chdir: "{{ path_ee }}/{{new_ee}}"
   register: ee_build_out
