@@ -71,8 +71,6 @@
   when: ee_list.stdout_lines is not search(base_ee)
 #    when: ee_list.stdout_lines is not search(inc_vars.build_arg_defaults.EE_BASE_IMAGE)
   ansible.builtin.shell: podman pull {{ base_ee }}
-  become_method: machinectl
-
 
 - name: Run the build on the selected new EE
   ansible.builtin.shell: "/root/ee_venv/bin/ansible-builder build --tag {{ new_ee }}"
