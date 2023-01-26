@@ -80,7 +80,6 @@
     chdir: "{{ path_ee }}/{{new_ee}}"
   register: ee_build_out
   failed_when: ee_build_out.stdout_lines is not search('Complete!')
-  become_method: machinectl
 
 - name: Push EE to container registry
   ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest {{ pah_host }}/{{ new_ee }}:latest --tls-verify=false --remove-signatures"
