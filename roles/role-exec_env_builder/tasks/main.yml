@@ -67,18 +67,13 @@
   ansible.builtin.debug:
     msg: "Install the missing base EE here"
 
-- name: Begin the build process on the EE when no certs need to be installed
-  block:
-    - name: Run the build on the selected new EE
-      ansible.builtin.shell: "ansible-builder build --tag {{ new_ee }}"
-      args:
-        chdir: "{{ path_ee }}/{{new_ee}}"
-      register: ee_build_out
-      failed_when: ee_build_out.stdout_lines is not search('Complete!')
-  when: ee_list.stdout_lines is search(base_ee)
-#      - name: debug ee_build_out
-#        ansible.builtin.debug:
-#          var: ee_build_out
+
+- name: Run the build on the selected new EE
+  ansible.builtin.shell: "ansible-builder build --tag {{ new_ee }}"
+  args:
+    chdir: "{{ path_ee }}/{{new_ee}}"
+  register: ee_build_out
+  failed_when: ee_build_out.stdout_lines is not search('Complete!')
 
 - name: Push EE to container registry
   ansible.builtin.shell: "podman push --creds={{ pah_user }}:{{ pah_pass }} localhost/{{ new_ee }}:latest docker://{{ pah_host }}/{{ new_ee }}:{{ new_ee_ver }} --tls-verify=false"
