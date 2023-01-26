@@ -60,17 +60,17 @@
 #    when: ee_list.stdout_lines is search(base_ee)
 #    ansible.builtin.debug:
 #      var: ee_list
-- name: podman login registry.redhat.io
-  shell: "podman login --authfile /run/containers/0/auth.json registry.redhat.io"
+# - name: podman login registry.redhat.io
+#   shell: "podman login --authfile /run/containers/0/auth.json registry.redhat.io"
 
 
-- name: podman login anshubprd01
-  shell: "podman login --authfile /run/containers/0/auth.json anshubprd01.esl.loc --tls-verify=false"
+# - name: podman login anshubprd01
+#   shell: "podman login --authfile /run/containers/0/auth.json anshubprd01.esl.loc --tls-verify=false"
 
 - name: Install the required base EE if not already present
   when: ee_list.stdout_lines is not search(base_ee)
 #    when: ee_list.stdout_lines is not search(inc_vars.build_arg_defaults.EE_BASE_IMAGE)
-  ansible.builtin.shell: podman pull {{ base_ee }}
+  ansible.builtin.shell: "{{ podman_login1 }} && podman pull {{ base_ee }}"
 
 - name: Run the build on the selected new EE
   ansible.builtin.shell: "/root/ee_venv/bin/ansible-builder build --tag {{ new_ee }}"
@@ -80,7 +80,7 @@
   failed_when: ee_build_out.stdout_lines is not search('Complete!')
 
 - name: Push EE to container registry
-  ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest {{ pah_host }}/{{ new_ee }}:latest --tls-verify=false --remove-signatures"
+  ansible.builtin.shell: "{{podman_login2}} && podman push localhost/{{ new_ee }}:latest {{ pah_host }}/{{ new_ee }}:latest --tls-verify=false --remove-signatures"
   args:
     chdir: "{{ path_ee }}/{{new_ee}}"
   register: pah_push_out
