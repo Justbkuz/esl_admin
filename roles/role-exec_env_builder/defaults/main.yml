@@ -1,8 +1,8 @@
 ---
-git_user: '{{ lookup("env", "GIT_USERNAME") }}'
-git_pass: '{{ lookup("env", "GIT_TOKEN") }}'
-controller_username: # saved in tower
-controller_password: # saved in tower
+git_user: '{{ lookup("env", "GIT_USERNAME") }}' # tower cred
+git_pass: '{{ lookup("env", "GIT_TOKEN") }}' # tower cred
+controller_username: # tower cred
+controller_password: # tower cred
 controller_base_url: ansauttow.esl.loc
 # what is the base EE that is used for building my custom EE
 base_ee: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8
@@ -20,8 +20,4 @@ ee_repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@dev.azure.co
 # credential name used in AAP
 pah_cred: Private_Automation_Hub_Registry
 # pah username/pass
-pah_user: "{{ gen1_user }}"
-pah_pass: "{{ gen1_pword }}"
-
-podman_login1: "podman login --authfile /run/containers/0/auth.json registry.redhat.io"
-podman_login2: "podman login --authfile /run/containers/0/auth.json anshubprd01.esl.loc --tls-verify=false"
+#requires podman login on target system first and using the auth.json file
