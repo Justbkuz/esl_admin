@@ -4,3 +4,4 @@ collections:
   version: '>=2.10.0'
 - name: community.general
   version: '>=5.7.0'
+- name: containers.podman

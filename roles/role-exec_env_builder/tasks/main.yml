@@ -60,6 +60,12 @@
 #    when: ee_list.stdout_lines is search(base_ee)
 #    ansible.builtin.debug:
 #      var: ee_list
+- name: podman login registry.redhat.io
+  shell: "podman login --authfile /run/containers/0/auth.json registry.redhat.io"
+
+
+- name: podman login anshubprd01
+  shell: "podman login --authfile /run/containers/0/auth.json anshubprd01.esl.loc --tls-verify=false"
 
 - name: Install the required base EE if not already present
   when: ee_list.stdout_lines is not search(base_ee)
