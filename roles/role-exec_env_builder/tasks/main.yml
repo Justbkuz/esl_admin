@@ -93,7 +93,7 @@
 - name: Collect credentials names to set pah_cred_id
   uri:
     url: "https://{{ controller_base_url }}/api/v2/credentials/"
-    user: "{{ controller_user }}"
+    user: "{{ controller_username }}"
     password: "{{ controller_password }}"
     method: GET
     validate_certs: false
@@ -118,7 +118,7 @@
 - name: Collect EEs to check if it already exists
   uri:
     url: "https://{{ controller_base_url }}/api/v2/execution_environments/"
-    user: "{{ controller_user }}"
+    user: "{{ controller_username }}"
     password: "{{ controller_password }}"
     method: GET
     validate_certs: false
@@ -147,7 +147,7 @@
     hosts: controllers
   uri:
     url: "https://{{ controller_base_url }}/api/v2/execution_environments/"
-    user: "{{ controller_user }}"
+    user: "{{ controller_username }}"
     password: "{{ controller_password }}"
     method: POST
     validate_certs: false
@@ -179,7 +179,7 @@
     hosts: controllers
   uri:
     url: "https://{{ controller_base_url }}/api/v2/execution_environments/{{ new_ee_id }}/"
-    user: "{{ controller_user }}"
+    user: "{{ controller_username }}"
     password: "{{ controller_password }}"
     method: PUT
     validate_certs: false

@@ -1,7 +1,7 @@
 ---
 git_user: '{{ lookup("env", "GIT_USERNAME") }}'
 git_pass: '{{ lookup("env", "GIT_TOKEN") }}'
-controller_user: # saved in tower
+controller_username: # saved in tower
 controller_password: # saved in tower
 controller_base_url: ansauttow.esl.loc
 # what is the base EE that is used for building my custom EE
