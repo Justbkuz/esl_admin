@@ -2,7 +2,8 @@
 git_user: '{{ lookup("env", "GIT_USERNAME") }}'
 git_pass: '{{ lookup("env", "GIT_TOKEN") }}'
 controller_user: # saved in tower
-controller_password: # saved in tower 
+controller_password: # saved in tower
+controller_base_url: ansauttow.esl.loc
 # what is the base EE that is used for building my custom EE
 base_ee: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8
 
@@ -17,7 +18,7 @@ pah_host: anshubprd01.esl.loc
 # ee repo
 ee_repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@dev.azure.com/ESLFederalCreditUnion/Ansible_Admin/_git/Ansible_Execution_Environment"
 # credential name used in AAP
-pah_cred: Automation Hub Container Registry
+pah_cred: Private_Automation_Hub_Registry
 # pah username/pass
 pah_user: "{{ gen1_user }}"
 pah_pass: "{{ gen1_pword }}"
