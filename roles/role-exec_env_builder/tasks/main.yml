@@ -64,9 +64,7 @@
 - name: Install the required base EE if not already present
   when: ee_list.stdout_lines is not search(base_ee)
 #    when: ee_list.stdout_lines is not search(inc_vars.build_arg_defaults.EE_BASE_IMAGE)
-  ansible.builtin.debug:
-    msg: "Install the missing base EE here"
-
+  ansible.builtin.shell: podman pull {{ base_ee }}
 
 - name: Run the build on the selected new EE
   ansible.builtin.shell: "/root/ee_venv/bin/ansible-builder build --tag {{ new_ee }}"
@@ -76,14 +74,14 @@
   failed_when: ee_build_out.stdout_lines is not search('Complete!')
 
 - name: Push EE to container registry
-  ansible.builtin.shell: "podman push --creds={{ pah_user }}:{{ pah_pass }} localhost/{{ new_ee }}:latest docker://{{ pah_host }}/{{ new_ee }}:{{ new_ee_ver }} --tls-verify=false"
+  ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest docker://{{ pah_host }}/{{ new_ee }}:latest --tls-verify=false"
   args:
     chdir: "{{ path_ee }}/{{new_ee}}"
   register: pah_push_out
   failed_when: pah_push_out.stderr_lines is not search('Storing signatures')
 
 #  - name: Debug pah_push_out
-#    ansible.builtin.debug:
+#    ansible.builtin.debug
 #      var: pah_push_out
 
 - name: Collect credentials

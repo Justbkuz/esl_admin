@@ -18,9 +18,6 @@ pah_host: anshubprd01.esl.com
 ee_repo: "https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@dev.azure.com/ESLFederalCreditUnion/Ansible_Admin/_git/Ansible_Execution_Environment"
 # credential name used in AAP
 pah_cred: Automation Hub Container Registry
-
-# new version number for the pushed ee
-# new_ee_ver: 1.0.2
 # pah username/pass
 pah_user: "{{ gen1_user }}"
 pah_pass: "{{ gen1_pword }}"
