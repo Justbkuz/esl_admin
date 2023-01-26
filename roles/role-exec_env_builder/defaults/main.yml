@@ -2,7 +2,7 @@
 controller_user: "{{ gen2_user }}"
 controller_pass: "{{ gen2_pword }}"
 # what is the base EE that is used for building my custom EE
-# base_ee: registry.redhat.io/ansible-automation-platform-21/ee-supported-rhel8
+base_ee: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8
 
 # what is the name of the new EE being built: Overwrite with requirements
 new_ee: all_ee_supported
@@ -13,8 +13,7 @@ base_ee_path: /root
 # private automation hub host
 pah_host: anshubprd01.esl.com
 # ee repo
-ee_repo: https://ESLFederalCreditUnion@dev.azure.com/ESLFederalCreditUnion/Ansible_Admin/_git/Ansible_Execution_Environment
-
+ee_repo: https://{{git_user|urlencode()}}:{{git_pass|urlencode()}}@dev.azure.com/ESLFederalCreditUnion/Ansible_Admin/_git/Ansible_Execution_Environment
 # credential name used in AAP
 pah_cred: Automation Hub Container Registry
 
@@ -24,5 +23,5 @@ pah_cred: Automation Hub Container Registry
 pah_user: "{{ gen1_user }}"
 pah_pass: "{{ gen1_pword }}"
 
-git_username:  '{{ lookup("env", "GIT_USERNAME" }}'
-git_token: '{{ lookup("env", "GIT_TOKEN" }}'
+git_user:  '{{ lookup("env", "GIT_USERNAME" }}'
+git_pass: '{{ lookup("env", "GIT_TOKEN" }}'
