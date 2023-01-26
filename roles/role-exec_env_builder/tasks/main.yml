@@ -74,7 +74,7 @@
   failed_when: ee_build_out.stdout_lines is not search('Complete!')
 
 - name: Push EE to container registry
-  ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest docker://{{ pah_host }}/{{ new_ee }}:latest --tls-verify=false --remove-signatures"
+  ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest {{ pah_host }}/{{ new_ee }}:latest --tls-verify=false --remove-signatures"
   args:
     chdir: "{{ path_ee }}/{{new_ee}}"
   register: pah_push_out
@@ -88,7 +88,7 @@
   uri:
     url: "https://{{ inventory_hostname }}/api/v2/credentials/"
     user: "{{ controller_user }}"
-    password: "{{ controller_pass }}"
+    password: "{{ controller_password }}"
     method: GET
     validate_certs: false
     force_basic_auth: true
@@ -113,7 +113,7 @@
   uri:
     url: "https://{{ inventory_hostname }}/api/v2/execution_environments/"
     user: "{{ controller_user }}"
-    password: "{{ controller_pass }}"
+    password: "{{ controller_password }}"
     method: GET
     validate_certs: false
     force_basic_auth: true
@@ -142,7 +142,7 @@
   uri:
     url: "https://{{ inventory_hostname }}/api/v2/execution_environments/"
     user: "{{ controller_user }}"
-    password: "{{ controller_pass }}"
+    password: "{{ controller_password }}"
     method: POST
     validate_certs: false
     force_basic_auth: true
@@ -174,7 +174,7 @@
   uri:
     url: "https://{{ inventory_hostname }}/api/v2/execution_environments/{{ new_ee_id }}/"
     user: "{{ controller_user }}"
-    password: "{{ controller_pass }}"
+    password: "{{ controller_password }}"
     method: PUT
     validate_certs: false
     force_basic_auth: true

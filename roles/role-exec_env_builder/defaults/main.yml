@@ -1,8 +1,8 @@
 ---
 git_user: '{{ lookup("env", "GIT_USERNAME") }}'
 git_pass: '{{ lookup("env", "GIT_TOKEN") }}'
-controller_user: "{{ gen2_user }}"
-controller_pass: "{{ gen2_pword }}"
+controller_user: # saved in tower
+controller_pass: # saved in tower 
 # what is the base EE that is used for building my custom EE
 base_ee: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8
 
