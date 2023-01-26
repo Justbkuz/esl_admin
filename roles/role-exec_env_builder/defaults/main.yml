@@ -1,6 +1,6 @@
 ---
-git_user:  '{{ lookup("env", "GIT_USERNAME" }}'
-git_pass: '{{ lookup("env", "GIT_TOKEN" }}'
+git_user: '{{ lookup("env", "GIT_USERNAME") }}'
+git_pass: '{{ lookup("env", "GIT_TOKEN") }}'
 controller_user: "{{ gen2_user }}"
 controller_pass: "{{ gen2_pword }}"
 # what is the base EE that is used for building my custom EE
