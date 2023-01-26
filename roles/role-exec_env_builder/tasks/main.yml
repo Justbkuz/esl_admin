@@ -74,7 +74,7 @@
   failed_when: ee_build_out.stdout_lines is not search('Complete!')
 
 - name: Push EE to container registry
-  ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest docker://{{ pah_host }}/{{ new_ee }}:latest --tls-verify=false"
+  ansible.builtin.shell: "podman push localhost/{{ new_ee }}:latest docker://{{ pah_host }}/{{ new_ee }}:latest --tls-verify=false --remove-signatures"
   args:
     chdir: "{{ path_ee }}/{{new_ee}}"
   register: pah_push_out

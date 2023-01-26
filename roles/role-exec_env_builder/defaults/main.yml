@@ -6,8 +6,8 @@ controller_pass: "{{ gen2_pword }}"
 # what is the base EE that is used for building my custom EE
 base_ee: registry.redhat.io/ansible-automation-platform-23/ee-supported-rhel8
 
-# what is the name of the new EE being built: Overwrite with requirements
-new_ee: all_ee_supported
+# what is the name of the new EE being built: Overwrite with requirements FOLDER IN REPO
+new_ee: all_ee
 # what is the path where the EE build files are stored
 path_ee: /root/Ansible_Execution_Environments
 # base folder for cloning EE
